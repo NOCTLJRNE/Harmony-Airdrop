@@ -122,7 +122,7 @@ async function runAirdrop(decide) {
     var name = splits[0].replace(/\r/g, '') || 'N/A'
     var sendAddress = splits[1].replace(/\r/g, '')
 	i++
-    console.log(i + ' Sending '+ TO_SEND + ' ' + decide + ' to ' + name + ' at Address: ', sendAddress)
+    console.log(i + '. Sending '+ TO_SEND + ' ' + decide + ' to ' + name + ' at Address: ', sendAddress)
     if (web3.utils.isAddress(sendAddress)) {
       if (decide === 'ONE') {
         await sendTxOne(sendAddress, nonce, TO_SEND)
