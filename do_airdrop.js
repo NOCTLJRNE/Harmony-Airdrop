@@ -4,7 +4,7 @@ const BN = require('bn.js');
 const numFormat = require('./utils/numberFormat');
 
 // Open file and put addresses into a list to iterate over
-var fName = 'addresses.csv'
+var fName = 'testaddresses.csv'
 
 const lineByLine = require('n-readlines')
 const liner = new lineByLine(fName)
@@ -115,12 +115,14 @@ async function get_nonce() {
 
 async function runAirdrop(decide) {
   let line
+  var i=0
   var nonce = await get_nonce()
   while ((line = liner.next())) {
     var splits = line.toString('utf8').split(',')
     var name = splits[0].replace(/\r/g, '') || 'N/A'
     var sendAddress = splits[1].replace(/\r/g, '')
-    console.log('Sending '+ TO_SEND + ' ' + decide + ' to ' + name + ' at Address: ', sendAddress)
+	i++
+    console.log(i + ' Sending '+ TO_SEND + ' ' + decide + ' to ' + name + ' at Address: ', sendAddress)
     if (web3.utils.isAddress(sendAddress)) {
       if (decide === 'ONE') {
         await sendTxOne(sendAddress, nonce, TO_SEND)
