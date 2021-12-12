@@ -1,0 +1,16 @@
+FOR RAFFLE
+1. Prepare {epoch}.json
+2. ./sort.sh {epoch}
+3. Result is saved to {epoch}_sorted.json
+4. ./extract_one_address.sh {epoch[_sorted]}
+5. Result is saved to {epoch[_sorted]}_one_address.txt
+6. ./convert_one_to_0X.sh {epoch[_sorted]}
+7. Result is saved to {epoch[_sorted]}_0x_address.txt
+8. ./extract_amount_reduced.sh {epoch[_sorted]}
+9. Result is saved to {epoch[_sorted]}_amount_reduced.txt
+10. paste -d , {epoch[_sorted]}_0x_address.txt {epoch[_sorted]}_amount_reduced.txt > {epoch[_sorted]}_0x_address_amount_reduced.csv
+11. Paste {epoch}_0x_address_amount_reduced.csv content into https://csvjson.com/csv2json
+12. paste -d , {epoch[_sorted]}_one_address.txt {epoch[_sorted]}_0x_address.txt {epoch[_sorted]}_amount_reduced.txt > {epoch[_sorted]}_one_0x_address_amount_reduced.csv
+13. Paste {epoch}_one_0x_address_amount_reduced.csv content into https://csvjson.com/csv2json
+FOR AIRDROP W/O WEIGTH
+FOR AIRDROP WITH WEIGTH

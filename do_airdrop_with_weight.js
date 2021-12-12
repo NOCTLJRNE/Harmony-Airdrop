@@ -4,7 +4,7 @@ const BN = require('bn.js');
 const numFormat = require('./utils/numberFormat');
 
 // Open file and put addresses into a list to iterate over
-var fName = '778_airdrop.csv'
+var fName = 'test_JEWEL_airdrop.csv'
 
 const lineByLine = require('n-readlines')
 const liner = new lineByLine(fName)
