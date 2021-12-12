@@ -5,7 +5,7 @@ const fs = require("fs");
 const numFormat = require('./utils/numberFormat');
 
 // Open file and put addresses into a list to iterate over
-fName_str = 'test_JEWEL_airdrop'
+fName_str = '780_to_786_JEWEL_airdrop'
 var fName = `${fName_str}.csv`
 var ouput_fileName = `${fName_str}.log`
 const lineByLine = require('n-readlines')
@@ -63,7 +63,7 @@ async function sendTxOne(toAddress, nonce, amount) {
   )
 }
 
-const sendHRC20Tokens = async (tokenJson, HRC20Contract, sendAddress, nonce, amount) => {
+const sendHRC20Tokens = async (tokenJson, HRC20Contract, name, sendAddress, nonce, amount) => {
   const myAddress = web3.eth.defaultAccount
 
   const hmyAbiJson = require(tokenJson);
@@ -90,7 +90,7 @@ const sendHRC20Tokens = async (tokenJson, HRC20Contract, sendAddress, nonce, amo
       .on('error', console.error)
       .on('transactionHash', transactionHash => {
         console.log(`Transaction is sending ${amount}: ${transactionHash}`);
-		let data = `${sendAddress},${amount},${transactionHash}\r\n`
+		let data = `${name},${sendAddress},${amount},${transactionHash}\r\n`
 		fs.appendFile(ouput_fileName, data, (err) =>{})
       });
   } catch (e) {
@@ -138,7 +138,7 @@ async function runAirdrop(decide) {
         nonce += 1
       }
       else {
-        await sendHRC20Tokens(tokenJson, HRC20Contract, sendAddress, nonce, airdrop_amount)
+        await sendHRC20Tokens(tokenJson, HRC20Contract, name, sendAddress, nonce, airdrop_amount)
         nonce += 1
       }
     } else {
