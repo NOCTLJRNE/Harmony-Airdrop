@@ -1,11 +1,13 @@
 require('dotenv').config()
 const Web3 = require('web3')
 const BN = require('bn.js');
+const fs = require("fs");
 const numFormat = require('./utils/numberFormat');
 
 // Open file and put addresses into a list to iterate over
-var fName = '780_to_786_JEWEL_airdrop.csv'
-
+fName_str = 'test_JEWEL_airdrop'
+var fName = `${fName_str}.csv`
+var ouput_fileName = `${fName_str}.log`
 const lineByLine = require('n-readlines')
 const liner = new lineByLine(fName)
 
@@ -88,6 +90,8 @@ const sendHRC20Tokens = async (tokenJson, HRC20Contract, sendAddress, nonce, amo
       .on('error', console.error)
       .on('transactionHash', transactionHash => {
         console.log(`Transaction is sending ${amount}: ${transactionHash}`);
+		let data = `${sendAddress},${amount},${transactionHash}\r\n`
+		fs.appendFile(ouput_fileName, data, (err) =>{})
       });
   } catch (e) {
     console.error(e);
