@@ -5,7 +5,7 @@ const fs = require("fs");
 const numFormat = require('./utils/numberFormat');
 
 // Open file and put addresses into a list to iterate over
-fName_str = '825_compensate'
+fName_str = 'testaddresses'
 var fName = `${fName_str}.csv`
 var ouput_fileName = `${fName_str}.log`
 const lineByLine = require('n-readlines')
