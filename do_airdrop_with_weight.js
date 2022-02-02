@@ -5,7 +5,7 @@ const fs = require("fs");
 const numFormat = require('./utils/numberFormat');
 
 // Open file and put addresses into a list to iterate over
-fName_str = 'testaddresses'
+fName_str = '858_Lunar_New_Year'
 var fName = `${fName_str}.csv`
 var ouput_fileName = `${fName_str}.log`
 const lineByLine = require('n-readlines')
