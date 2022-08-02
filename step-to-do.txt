@@ -14,3 +14,5 @@ FOR RAFFLE
 13. Paste {epoch}_one_0x_address_amount_reduced.csv content into https://csvjson.com/csv2json
 FOR AIRDROP W/O WEIGTH
 FOR AIRDROP WITH WEIGTH
+
+
